@@ -13,6 +13,7 @@ _up = {"jsonrpc": "2.0", "method": "Input.up", "id": "1"}
 _down = {"jsonrpc": "2.0", "method": "Input.down", "id": "1"}
 _left = {"jsonrpc": "2.0", "method": "Input.left", "id": "1"}
 _right = {"jsonrpc": "2.0", "method": "Input.right", "id": "1"}
+_select = {"jsonrpc": "2.0", "method": "Input.select", "id": "1"}
 
 # XBMC JSON-RPC API URL
 _url = "http://192.168.1.105/jsonrpc"
@@ -47,6 +48,11 @@ while True:
     elif key == 'r':
         try:
             request = requests.post(_url, data=json.dumps(_right))
+        except:
+            print("Somethings wrong, is Your XBMC running?")
+    elif key == 's':
+        try:
+            request = requests.post(_url, data=json.dumps(_select))
         except:
             print("Somethings wrong, is Your XBMC running?")
     elif key == 'q':
